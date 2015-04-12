@@ -21,4 +21,11 @@ describe Blog do
       @it.new_post.blog.must_equal(@it)
     end
   end
+  describe "#add_entry" do
+    it "adds the entry to the blog" do
+      entry = Object.new
+      @it.add_entry(entry)
+      @it.entries.must_include(entry)
+    end
+  end
 end
