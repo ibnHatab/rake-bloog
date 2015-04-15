@@ -2,9 +2,14 @@
 # Blog class as self rendering entity
 class Blog
   attr_reader :entries
+  attr_accessor :post_source
 
   def initialize
     @entries = []
+  end
+
+  def entries
+    @entries.sort_by { |e| e.pubdate }.reverse.take(10)
   end
 
   def title
@@ -22,7 +27,7 @@ class Blog
   end
 
   def add_entry(entry)
-    entries << entry
+    @entries << entry
   end
 
   private
